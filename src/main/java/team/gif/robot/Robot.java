@@ -41,6 +41,7 @@ public class Robot extends TimedRobot {
     robotContainer = new RobotContainer();
     oi = new OI();
     uiSmartDashboard = new UiSmartDashboard();
+    pigeon = new Pigeon(RobotMap.PIGEON_ID);
 
   }
 
@@ -58,7 +59,7 @@ public class Robot extends TimedRobot {
     // and running subsystem periodic() methods.  This must be called from the robot's periodic
     // block in order for anything in the Command-based framework to work.
     CommandScheduler.getInstance().run();
-
+    pigeon.getHeading();
     uiSmartDashboard.updateUI();
 
   }
