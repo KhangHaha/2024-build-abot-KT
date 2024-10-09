@@ -4,11 +4,13 @@
 
 package team.gif.robot;
 
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import team.gif.lib.logging.EventFileLogger;
 import team.gif.lib.logging.TelemetryFileLogger;
+import team.gif.robot.subsystems.CIM;
 import team.gif.robot.subsystems.drivers.Pigeon;
 
 /**
@@ -30,6 +32,9 @@ public class Robot extends TimedRobot {
 
   public static final boolean enableSwerveDebug = false;
 
+  public static TalonSRX talon;
+  public static CIM motor;
+
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
@@ -41,7 +46,7 @@ public class Robot extends TimedRobot {
     robotContainer = new RobotContainer();
     oi = new OI();
     uiSmartDashboard = new UiSmartDashboard();
-
+    motor = new CIM();
   }
 
   /**
@@ -60,7 +65,7 @@ public class Robot extends TimedRobot {
     CommandScheduler.getInstance().run();
 
     uiSmartDashboard.updateUI();
-
+    talon = new TalonSRX(RobotMap.TALON_ID);
   }
 
   /** This function is called once each time the robot enters Disabled mode. */
