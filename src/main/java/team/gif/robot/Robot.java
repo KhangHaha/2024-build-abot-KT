@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import team.gif.lib.logging.EventFileLogger;
 import team.gif.lib.logging.TelemetryFileLogger;
+import team.gif.robot.commands.JoyStickControl;
 import team.gif.robot.commands.printTime;
 import team.gif.robot.subsystems.CIM;
 import team.gif.robot.subsystems.drivers.Pigeon;
@@ -30,7 +31,7 @@ public class Robot extends TimedRobot {
   public static limitSwitch limitObject;
   public static printTime printtime;
   public static Pigeon pigeon;
-
+  public static JoyStickControl joy;
   public static UiSmartDashboard uiSmartDashboard;
 
   public static final boolean enableSwerveDebug = false;
@@ -38,20 +39,24 @@ public class Robot extends TimedRobot {
   public static TalonSRX talon;
   public static CIM motor;
 
+
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
    */
   @Override
   public void robotInit() {
+    pigeon = new Pigeon(RobotMap.PIGEON_ID);
+    limitObject = new limitSwitch();
+    motor = new CIM();
+    joy = new JoyStickControl();
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
     robotContainer = new RobotContainer();
     oi = new OI();
     uiSmartDashboard = new UiSmartDashboard();
-    pigeon = new Pigeon(RobotMap.PIGEON_ID);
-    limitObject = new limitSwitch();
-    motor = new CIM();
+
+    motor.setDefaultCommand(joy);
   }
 
   /**
