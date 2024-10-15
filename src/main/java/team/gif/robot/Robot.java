@@ -11,6 +11,7 @@ import team.gif.lib.logging.EventFileLogger;
 import team.gif.lib.logging.TelemetryFileLogger;
 import team.gif.robot.commands.printTime;
 import team.gif.robot.subsystems.drivers.Pigeon;
+import team.gif.robot.subsystems.limitSwitch;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -24,8 +25,8 @@ public class Robot extends TimedRobot {
   private static TelemetryFileLogger telemetryLogger;
   public static EventFileLogger eventLogger;
   public static OI oi;
+  public static limitSwitch limitObject;
   public static printTime printtime;
-
   public static Pigeon pigeon;
 
   public static UiSmartDashboard uiSmartDashboard;
@@ -43,8 +44,7 @@ public class Robot extends TimedRobot {
     robotContainer = new RobotContainer();
     oi = new OI();
     uiSmartDashboard = new UiSmartDashboard();
-    
-
+    limitObject = new limitSwitch();
   }
 
   /**
@@ -61,7 +61,7 @@ public class Robot extends TimedRobot {
     // and running subsystem periodic() methods.  This must be called from the robot's periodic
     // block in order for anything in the Command-based framework to work.
     CommandScheduler.getInstance().run();
-
+    System.out.println(limitObject.getLimitSwitch());
     uiSmartDashboard.updateUI();
 
   }
