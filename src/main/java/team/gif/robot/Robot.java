@@ -28,7 +28,7 @@ public class Robot extends TimedRobot {
   private static TelemetryFileLogger telemetryLogger;
   public static EventFileLogger eventLogger;
   public static OI oi;
-  public static limitSwitch limitObject;
+  public static limitSwitch limitSwitch;
   public static printTime printtime;
   public static Pigeon pigeon;
   public static JoyStickControl joy;
@@ -38,7 +38,7 @@ public class Robot extends TimedRobot {
 
   public static TalonSRX talon;
   public static CIM motor;
-
+  public static UI ui;
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -47,12 +47,14 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     pigeon = new Pigeon(RobotMap.PIGEON_ID);
-    limitObject = new limitSwitch();
+    limitSwitch = new limitSwitch();
     motor = new CIM();
     joy = new JoyStickControl();
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
     robotContainer = new RobotContainer();
+
+    ui = new UI();
     oi = new OI();
     uiSmartDashboard = new UiSmartDashboard();
 
@@ -74,7 +76,7 @@ public class Robot extends TimedRobot {
     // block in order for anything in the Command-based framework to work.
     CommandScheduler.getInstance().run();
     System.out.println(pigeon.get360Heading());
-    System.out.println(limitObject.getLimitSwitch());
+    System.out.println(limitSwitch.getLimitSwitch());
     uiSmartDashboard.updateUI();
     talon = new TalonSRX(RobotMap.TALON_ID);
   }
