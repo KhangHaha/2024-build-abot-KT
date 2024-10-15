@@ -13,7 +13,7 @@ import team.gif.lib.logging.TelemetryFileLogger;
 import team.gif.robot.commands.JoyStickControl;
 import team.gif.robot.commands.SparkMotorControl;
 import team.gif.robot.commands.printTime;
-import team.gif.robot.subsystems.CIM;
+import team.gif.robot.subsystems.TalonSRXMotor;
 import team.gif.robot.subsystems.SparkController;
 import team.gif.robot.subsystems.drivers.Pigeon;
 import team.gif.robot.subsystems.limitSwitch;
@@ -39,7 +39,7 @@ public class Robot extends TimedRobot {
   public static final boolean enableSwerveDebug = false;
 
   public static TalonSRX talon;
-  public static CIM motor;
+  public static TalonSRXMotor motor;
   public static UI ui;
   public static SparkMotorControl sparkMotorControl;
   public static SparkController sparky;
@@ -52,7 +52,7 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     pigeon = new Pigeon(RobotMap.PIGEON_ID);
     limitSwitch = new limitSwitch();
-    motor = new CIM();
+    motor = new TalonSRXMotor();
     joy = new JoyStickControl();
     sparkMotorControl = new SparkMotorControl();
     sparky = new SparkController();
