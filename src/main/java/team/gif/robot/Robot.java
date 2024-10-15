@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import team.gif.lib.logging.EventFileLogger;
 import team.gif.lib.logging.TelemetryFileLogger;
+import team.gif.robot.commands.printTime;
 import team.gif.robot.subsystems.drivers.Pigeon;
 
 /**
@@ -23,6 +24,7 @@ public class Robot extends TimedRobot {
   private static TelemetryFileLogger telemetryLogger;
   public static EventFileLogger eventLogger;
   public static OI oi;
+  public static printTime printtime;
 
   public static Pigeon pigeon;
 
@@ -41,6 +43,7 @@ public class Robot extends TimedRobot {
     robotContainer = new RobotContainer();
     oi = new OI();
     uiSmartDashboard = new UiSmartDashboard();
+    
 
   }
 
