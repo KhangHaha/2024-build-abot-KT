@@ -17,7 +17,7 @@ public class NEOMotor extends Command {
     @Override
     public void execute(){
         System.out.println("Neo is running. ");
-        Robot.sparky.setSparky(Constants.getNeoPercent());
+        Robot.sparky.setSparky(Constants.NEO_PERCENT);
 
     }
     @Override

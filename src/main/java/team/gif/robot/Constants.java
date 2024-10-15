@@ -23,9 +23,4 @@ public final class Constants {
     public Constants(){}
 
 
-
-    public static double getNeoPercent(){
-        return NEO_PERCENT;
-    }
-
 }
