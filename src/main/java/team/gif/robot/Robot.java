@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import team.gif.lib.logging.EventFileLogger;
 import team.gif.lib.logging.TelemetryFileLogger;
 import team.gif.robot.commands.JoyStickControl;
-import team.gif.robot.commands.NEOMotor;
+import team.gif.robot.commands.SparkMotorControl;
 import team.gif.robot.commands.printTime;
 import team.gif.robot.subsystems.CIM;
 import team.gif.robot.subsystems.SparkController;
@@ -40,7 +40,7 @@ public class Robot extends TimedRobot {
 
   public static TalonSRX talon;
   public static CIM motor;
-  public static NEOMotor neoMotor;
+  public static SparkMotorControl sparkMotorControl;
   public static SparkController sparky;
 
 
@@ -54,7 +54,7 @@ public class Robot extends TimedRobot {
     limitObject = new limitSwitch();
     motor = new CIM();
     joy = new JoyStickControl();
-    neoMotor = new NEOMotor();
+    sparkMotorControl = new SparkMotorControl();
     sparky = new SparkController();
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.

@@ -4,9 +4,9 @@ import edu.wpi.first.wpilibj2.command.Command;
 import team.gif.robot.Constants;
 import team.gif.robot.Robot;
 
-public class NEOMotor extends Command {
+public class SparkMotorControl extends Command {
 
-    public NEOMotor(){
+    public SparkMotorControl(){
         super();
 
     }
@@ -17,7 +17,7 @@ public class NEOMotor extends Command {
     @Override
     public void execute(){
         System.out.println("Neo is running. ");
-        Robot.sparky.setSparky(Constants.NEO_PERCENT);
+        Robot.sparky.setSparky(Constants.NEO_VOLT);
 
     }
     @Override
