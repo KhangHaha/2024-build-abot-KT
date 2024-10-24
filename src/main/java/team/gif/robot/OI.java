@@ -2,6 +2,7 @@ package team.gif.robot;
 
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
+import team.gif.robot.commands.SparkMaxRPM;
 import team.gif.robot.commands.SparkMotorControl;
 import team.gif.robot.commands.MotorBack;
 import team.gif.robot.commands.MotorForward;
@@ -73,8 +74,9 @@ public class OI {
 
     public OI() {
         dB.whileTrue(new MotorForward());
-        dA.whileTrue((new MotorBack()));
+        dX.whileTrue((new MotorBack()));
         dY.whileTrue(new SparkMotorControl());
+        dA.whileTrue(new SparkMaxRPM());
         /*
          *
          * Create controller actions here

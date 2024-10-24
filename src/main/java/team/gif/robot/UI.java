@@ -19,5 +19,6 @@ public class UI {
         ShuffleboardTab shuffleboardTab = Shuffleboard.getTab("BAB");
 
         shuffleboardTab.addBoolean("Limit Switch", Robot.limitSwitch::getLimitSwitch);
+        shuffleboardTab.addDouble("NEO RPM", Robot.sparky::getMotorRPM);
     }
 }
