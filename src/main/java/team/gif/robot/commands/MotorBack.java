@@ -1,6 +1,7 @@
 package team.gif.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
+import team.gif.robot.Constants;
 import team.gif.robot.Robot;
 
 public class MotorBack extends Command {
@@ -18,7 +19,7 @@ public class MotorBack extends Command {
     @Override
     public void execute() {
         System.out.println("Running Motor");
-        Robot.motor.moveCIM(-0.2);
+        Robot.motor.moveCIM(-Constants.CIM_MOTOR_PERCENT);
 
     }
 

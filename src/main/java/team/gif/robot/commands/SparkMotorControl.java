@@ -17,7 +17,7 @@ public class SparkMotorControl extends Command {
     @Override
     public void execute(){
         System.out.println("Neo is running. ");
-        Robot.sparky.setSparky(Constants.NEO_VOLT);
+        Robot.sparky.setMotor(Constants.NEOConstants.NEO_VOLT);
 
     }
     @Override
@@ -26,7 +26,7 @@ public class SparkMotorControl extends Command {
     }
     @Override
     public void end(boolean interrupted) {
-        Robot.sparky.setSparky(0);
+        Robot.sparky.setMotor(0);
     }
 
 }
