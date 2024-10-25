@@ -17,6 +17,9 @@ public class JoyStickControl extends Command {
     public void execute() {
         System.out.println("Running Motor");
         double x = -Robot.oi.driver.getLeftY();
+        if (Robot.limitSwitch.getLimitSwitch()){
+            x/=2;
+        }
         Robot.motor.moveCIM(x);
 
     }
