@@ -13,6 +13,7 @@ import team.gif.lib.logging.TelemetryFileLogger;
 import team.gif.robot.commands.JoyStickControl;
 import team.gif.robot.commands.SparkMotorControl;
 import team.gif.robot.commands.printTime;
+import team.gif.robot.subsystems.PneumaticSolenoid;
 import team.gif.robot.subsystems.TalonSRXMotor;
 import team.gif.robot.subsystems.SparkController;
 import team.gif.robot.subsystems.drivers.Pigeon;
@@ -43,6 +44,7 @@ public class Robot extends TimedRobot {
   public static UI ui;
   public static SparkMotorControl sparkMotorControl;
   public static SparkController sparky;
+  public static PneumaticSolenoid solenoid;
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -56,6 +58,7 @@ public class Robot extends TimedRobot {
     joy = new JoyStickControl();
     sparkMotorControl = new SparkMotorControl();
     sparky = new SparkController();
+    solenoid = new PneumaticSolenoid();
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
     robotContainer = new RobotContainer();
